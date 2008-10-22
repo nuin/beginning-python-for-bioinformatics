@@ -18,15 +18,19 @@ class pymotGUI(wx.Frame):
 #        self.__do_binding()
 
     def __do_layout(self):
+        
+        #adding the panel
+        panel = wx.Panel(self)
+        
         #defines the menubar
         menubar = wx.MenuBar()
         
         #file menu
         filemenu = wx.Menu()
-        self.convertmenu = filemenu.Append(-1, 'Select foreground file')
-        self.seqmenu = filemenu.Append(-1, 'Select background file')
-        self.treemenu = filemenu.AppendSeparator()
-        self.treenooutmenu = filemenu.Append(-1, 'Quit')
+        convertmenu = filemenu.Append(-1, 'Select foreground file')
+        seqmenu = filemenu.Append(-1, 'Select background file')
+        sep = filemenu.AppendSeparator()
+        treenooutmenu = filemenu.Append(-1, 'Quit')
         
         #appends the menu to the menubar and creates it
         menubar.Append(filemenu, 'File')
