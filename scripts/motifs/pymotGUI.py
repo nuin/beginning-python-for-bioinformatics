@@ -3,18 +3,22 @@
 import wx
 import pymot
 import fasta
+import os
 
 class pymot(wx.App):
 
     def __init__(self, redirect=False):
         wx.App.__init__(self, redirect)
+        
 
 class pymotGUI(wx.Frame):
-    
+
     def __init__(self, parent, id):
         wx.Frame.__init__(self, parent, id,  'Python Motif Finder', style=wx.DEFAULT_FRAME_STYLE)
         self.__do_layout()
-        self.__do_binding()
+        self.fore_file = ''
+        self.back_file = ''
+
 
     def __do_layout(self):
         
@@ -38,11 +42,24 @@ class pymotGUI(wx.Frame):
         self.Bind(wx.EVT_MENU, self.on_foreground, foreground_menu)
         self.Bind(wx.EVT_MENU, self.on_background, background_menu)
         
+        
+        
     def on_foreground(self, event):
-        pass
+        dialog = wx.FileDialog(self, 'Select foreground file ...', os.getcwd(), style=wx.OPEN)
+        if dialog.ShowModal() == wx.ID_OK:
+            wx.MessageBox(dialog.GetFilename())
+            fore_file = dialog.GetFilename()
+            self.run_something()
 
     def on_background(self, event):
-        pass
+        dialog = wx.FileDialog(self, 'Select background file ...', os.getcwd(), style=wx.OPEN)
+        if dialog.ShowModal() == wx.ID_OK:
+            wx.MessageBox(dialog.GetFilename())
+            back_file = dialog.GetFilename()
+
+    def run_something(self):
+        wx.MessageBox(fore_file)
+
 
 #if __name__ == '__main__':
 app = pymot()
