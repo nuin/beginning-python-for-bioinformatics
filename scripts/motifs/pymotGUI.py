@@ -19,7 +19,6 @@ class pymotGUI(wx.Frame):
         self.fore_file = ''
         self.back_file = ''
 
-
     def __do_layout(self):
         
         #adding the panel
@@ -39,26 +38,25 @@ class pymotGUI(wx.Frame):
         menubar.Append(filemenu, 'File')
         self.SetMenuBar(menubar)
 
+        self.fore_label = wx.StaticText(panel, -1, 'Select the foreground file', (10, 10))
+        self.back_label = wx.StaticText(panel, -1, 'Select the background file', (10, 30))
+
         self.Bind(wx.EVT_MENU, self.on_foreground, foreground_menu)
         self.Bind(wx.EVT_MENU, self.on_background, background_menu)
         
         
-        
     def on_foreground(self, event):
-        dialog = wx.FileDialog(self, 'Select foreground file ...', os.getcwd(), style=wx.OPEN)
+        dialog = wx.FileDialog(self, style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
-            wx.MessageBox(dialog.GetFilename())
             fore_file = dialog.GetFilename()
-            self.run_something()
+            self.fore_label.SetLabel(dialog.GetFilename())
 
     def on_background(self, event):
-        dialog = wx.FileDialog(self, 'Select background file ...', os.getcwd(), style=wx.OPEN)
+        dialog = wx.FileDialog(self, style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
-            wx.MessageBox(dialog.GetFilename())
             back_file = dialog.GetFilename()
+            self.back_label.SetLabel(dialog.GetFilename())
 
-    def run_something(self):
-        wx.MessageBox(fore_file)
 
 
 #if __name__ == '__main__':
