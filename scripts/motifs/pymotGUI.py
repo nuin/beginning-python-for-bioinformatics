@@ -38,25 +38,37 @@ class pymotGUI(wx.Frame):
         menubar.Append(filemenu, 'File')
         self.SetMenuBar(menubar)
 
+        #input box for motif width, and label
+        self.one_label = wx.StaticText(panel, -1, 'Motif width', (10,50))
+        self.motif_width = wx.TextCtrl(panel, -1, '10', (95, 50), (40,18))
+
+        #run bbutton
+        self.run_button = wx.Button(panel, -1, 'Run', (10, 80))
+
+        #labels
         self.fore_label = wx.StaticText(panel, -1, 'Select the foreground file', (10, 10))
         self.back_label = wx.StaticText(panel, -1, 'Select the background file', (10, 30))
 
+        #binding the menus to functions 
         self.Bind(wx.EVT_MENU, self.on_foreground, foreground_menu)
         self.Bind(wx.EVT_MENU, self.on_background, background_menu)
+        self.Bind(wx.EVT_BUTTON, self.run_finder, self.run_button)
         
         
     def on_foreground(self, event):
         dialog = wx.FileDialog(self, style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
-            fore_file = dialog.GetFilename()
-            self.fore_label.SetLabel(dialog.GetFilename())
+            fore_file = dialog.GetPath()
+            self.fore_label.SetLabel(fore_file)
 
     def on_background(self, event):
         dialog = wx.FileDialog(self, style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
-            back_file = dialog.GetFilename()
-            self.back_label.SetLabel(dialog.GetFilename())
+            back_file = dialog.GetPath()
+            self.back_label.SetLabel(back_file)
 
+    def run_finder(self, event):
+        wx.MessageBox('It should run, eh?')
 
 
 #if __name__ == '__main__':
