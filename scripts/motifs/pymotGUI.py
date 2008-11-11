@@ -2,6 +2,7 @@
 
 import wx
 import pymot
+import pymotif
 import fasta
 import os
 
@@ -68,7 +69,8 @@ class pymotGUI(wx.Frame):
             self.back_label.SetLabel(back_file)
 
     def run_finder(self, event):
-        wx.MessageBox('It should run, eh?')
+        pymotif.calculate_motifs(self.fore_file, self.back_file)
+        #wx.MessageBox('It should run, eh?')
 
 
 #if __name__ == '__main__':
