@@ -42,6 +42,9 @@ class pymotGUI(wx.Frame):
         #input box for motif width, and label
         self.one_label = wx.StaticText(panel, -1, 'Motif width', (10,50))
         self.motif_width = wx.TextCtrl(panel, -1, '10', (95, 50), (40,18))
+        #result textbox
+        self.results = wx.TextCtrl(panel, -1, '', (150, 50), (200, 100), wx.TE_MULTILINE | wx.TE_AUTO_SCROLL | wx.HSCROLL)
+        
 
         #run bbutton
         self.run_button = wx.Button(panel, -1, 'Run', (10, 80))
@@ -49,6 +52,8 @@ class pymotGUI(wx.Frame):
         #labels
         self.fore_label = wx.StaticText(panel, -1, 'Select the foreground file', (10, 10))
         self.back_label = wx.StaticText(panel, -1, 'Select the background file', (10, 30))
+
+
 
         #binding the menus to functions 
         self.Bind(wx.EVT_MENU, self.on_foreground, foreground_menu)
@@ -69,7 +74,9 @@ class pymotGUI(wx.Frame):
             self.back_label.SetLabel(back_file)
 
     def run_finder(self, event):
-        pymotif.calculate_motifs(self.fore_file, self.back_file)
+        result = pymotif.calculate_motifs(self.fore_file, self.back_file)
+        for motif in result:
+            self.results.WriteText(motif + '\n')
         #wx.MessageBox('It should run, eh?')
 
 
