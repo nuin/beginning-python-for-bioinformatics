@@ -29,8 +29,9 @@ def get_quorums(seqs, mlen):
     
 def calculate_motifs(input_seqs, input_seqs2):
     
-    input_seqs = fasta.read_seqs(open('celladhesion1000.fa').readlines())
-    input_seqs2 = fasta.read_seqs(open('celladhesion1000C.fa').readlines())
+    print input_seqs, input_seqs2
+    input_seqs = fasta.read_seqs(open(input_seqs).readlines())
+    input_seqs2 = fasta.read_seqs(open(input_seqs2).readlines())
 
     foreground = get_quorums(input_seqs, 10)
     background = get_quorums(input_seqs2, 10)
