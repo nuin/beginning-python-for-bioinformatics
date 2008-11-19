@@ -72,11 +72,10 @@ class pymotGUI(wx.Frame):
             self.back_label.SetLabel(pymotGUI.back_file)
 
     def run_finder(self, event):
-        print pymotGUI.fore_file
-        result = pymotif.calculate_motifs(pymotGUI.fore_file, pymotGUI.back_file)
+        width = self.motif_width.GetValue()
+        result = pymotif.calculate_motifs(pymotGUI.fore_file, pymotGUI.back_file, int(width))
         for motif in result:
             self.results.WriteText(motif + '\n')
-        #wx.MessageBox('It should run, eh?')
 
 
 #if __name__ == '__main__':
