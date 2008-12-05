@@ -13,12 +13,13 @@ class pymot(wx.App):
         
 
 class pymotGUI(wx.Frame):
-
+    
+    fore_file = ''
+    back_file = ''
+        
     def __init__(self, parent, id):
         wx.Frame.__init__(self, parent, id,  'Python Motif Finder', style=wx.DEFAULT_FRAME_STYLE)
         self.__do_layout()
-        self.fore_file = ''
-        self.back_file = ''
 
     def __do_layout(self):
         
@@ -45,15 +46,12 @@ class pymotGUI(wx.Frame):
         #result textbox
         self.results = wx.TextCtrl(panel, -1, '', (150, 50), (200, 100), wx.TE_MULTILINE | wx.TE_AUTO_SCROLL | wx.HSCROLL)
         
-
         #run bbutton
         self.run_button = wx.Button(panel, -1, 'Run', (10, 80))
 
         #labels
         self.fore_label = wx.StaticText(panel, -1, 'Select the foreground file', (10, 10))
         self.back_label = wx.StaticText(panel, -1, 'Select the background file', (10, 30))
-
-
 
         #binding the menus to functions 
         self.Bind(wx.EVT_MENU, self.on_foreground, foreground_menu)
@@ -64,20 +62,20 @@ class pymotGUI(wx.Frame):
     def on_foreground(self, event):
         dialog = wx.FileDialog(self, style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
-            fore_file = dialog.GetPath()
-            self.fore_label.SetLabel(fore_file)
+            pymotGUI.fore_file = dialog.GetPath()
+            self.fore_label.SetLabel(pymotGUI.fore_file)
 
     def on_background(self, event):
         dialog = wx.FileDialog(self, style=wx.OPEN)
         if dialog.ShowModal() == wx.ID_OK:
-            back_file = dialog.GetPath()
-            self.back_label.SetLabel(back_file)
+            pymotGUI.back_file = dialog.GetPath()
+            self.back_label.SetLabel(pymotGUI.back_file)
 
     def run_finder(self, event):
-        result = pymotif.calculate_motifs(self.fore_file, self.back_file)
+        width = self.motif_width.GetValue()
+        result = pymotif.calculate_motifs(pymotGUI.fore_file, pymotGUI.back_file, int(width))
         for motif in result:
             self.results.WriteText(motif + '\n')
-        #wx.MessageBox('It should run, eh?')
 
 
 #if __name__ == '__main__':
