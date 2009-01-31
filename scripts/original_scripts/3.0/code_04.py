@@ -10,4 +10,4 @@ file = open(dnafile, 'r')
 
 #printing each line of the file
 for line in file:
-    print(line, end = '')
+    print(line, end='')

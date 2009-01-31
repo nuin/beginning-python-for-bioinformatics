@@ -5,7 +5,7 @@ extremely simple script to DNA transcription
 '''
 
 
-myDNA = 'ACGTTGCAACGTTGCAACGTTGCA'
+dna = 'ACGTTGCAACGTTGCAACGTTGCA'
 #string buil-in replace method
-myRNA = myDNA.replace('T', 'U')
-print myRNA
+rna = dna.replace('T', 'U')
+print rna

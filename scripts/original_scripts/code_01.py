@@ -3,5 +3,5 @@
 '''first script featured on the website
 like a hello world'''
 
-myDNA = "ACGTACGTACGTACGTACGTACGT"
-print myDNA
+dna = "ACGTACGTACGTACGTACGTACGT"
+print dna

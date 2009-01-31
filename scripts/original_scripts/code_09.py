@@ -24,10 +24,10 @@ while fileentered == True:
             #remove carriage returns
             sequence = sequence.replace('\n', '')
             #counting
-            totalA = sequence.count('A')
-            totalC = sequence.count('C')
-            totalG = sequence.count('G')
-            totalT = sequence.count('T')
+            total_a = sequence.count('A')
+            total_c = sequence.count('C')
+            total_g = sequence.count('G')
+            total_t = sequence.count('T')
             #create a regex object with non-nucleotide letters to check for "errors"
             otherletter = re.compile('[BDEFHIJKLMNOPQRSUVXZ]+')
             #find possible non-nucleotides
@@ -36,10 +36,10 @@ while fileentered == True:
             output = open(filename + '.count', 'w')
             #writing the output
             output.write('Count report for file ' + filename + '\n')
-            output.write('A = ' + str(totalA) + '\n')
-            output.write('C = ' + str(totalC) + '\n')
-            output.write('G = ' + str(totalG) + '\n')
-            output.write('T = ' + str(totalT) + '\n')
+            output.write('A = ' + str(total_a) + '\n')
+            output.write('C = ' + str(total_c) + '\n')
+            output.write('G = ' + str(total_g) + '\n')
+            output.write('T = ' + str(total_t) + '\n')
             #if there are non-nucleotides in the sequence, report them
             if len(extra) > 0:
                 output.write('Also were found ' + str(len(extra)) + ' errors\n')

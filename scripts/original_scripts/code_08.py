@@ -13,14 +13,14 @@ seqlist = open(dnafile, 'r').readlines()
 temp = ''.join(seqlist)
 
 #counting
-totalA = temp.count('A')
-totalC = temp.count('C')
-totalG = temp.count('G')
-totalT = temp.count('T')
+total_a = temp.count('A')
+total_c = temp.count('C')
+total_g = temp.count('G')
+total_t = temp.count('T')
 
 #printing results
-print str(totalA) + ' As found'
-print str(totalC) + ' Cs found'
-print str(totalG) + ' Gs found'
-print str(totalT) + ' Ts found'
+print str(total_a) + ' As found'
+print str(total_c) + ' Cs found'
+print str(total_g) + ' Gs found'
+print str(total_t) + ' Ts found'
 

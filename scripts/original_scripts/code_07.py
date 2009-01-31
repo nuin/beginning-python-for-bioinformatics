@@ -20,25 +20,25 @@ for line in file:
 seqlist = list(sequence)
 
 #initializing integers to store the counts
-totalA = 0
-totalC = 0
-totalG = 0
-totalT = 0
+total_a = 0
+total_c = 0
+total_g = 0
+total_t = 0
 
 #checking each item in the list and updating counts	
 for base in seqlist:
     if base == 'A':
-        totalA += 1
+        total_a += 1
     elif base == 'C':
-        totalC += 1
+        total_c += 1
     elif base == 'G':
-        totalG += 1
+        total_g += 1
     elif base == 'T':
-        totalT += 1
+        total_t += 1
 
-print str(totalA) + ' As found'
-print str(totalC) + ' Cs found'
-print str(totalG) + ' Gs found'
-print str(totalT) + ' Ts found'
+print str(total_a) + ' As found'
+print str(total_c) + ' Cs found'
+print str(total_g) + ' Gs found'
+print str(total_t) + ' Ts found'
 
 

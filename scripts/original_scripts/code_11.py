@@ -9,15 +9,15 @@ import sys
 def count_nucleotide_types(seq):
     '''counting nucleotides and returning a list with counts'''
     result = []
-    totalA = seq.count('A')
-    totalC = seq.count('C')
-    totalG = seq.count('G')
-    totalT = seq.count('T')
+    total_a = seq.count('A')
+    total_c = seq.count('C')
+    total_g = seq.count('G')
+    total_t = seq.count('T')
 
-    result.append(totalA)
-    result.append(totalC)
-    result.append(totalG)
-    result.append(totalT)
+    result.append(total_a)
+    result.append(total_c)
+    result.append(total_g)
+    result.append(total_t)
 
     return result
 

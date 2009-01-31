@@ -3,10 +3,10 @@
 '''second script available, shows a simple way to concatenate
 two DNA sequences, strings'''
 
-myDNA = "ACGTACGTACGTACGTACGTACGT"
-myDNA2 = "TCGATCGATCGATCGATCGA"
+dna = "ACGTACGTACGTACGTACGTACGT"
+dna2 = "TCGATCGATCGATCGATCGA"
 print "First and Second sequences"
-print myDNA, myDNA2
-myDNA3 = myDNA + myDNA2
+print dna, dna2
+dna3 = dna + dna2
 print "Concatenated sequence"
-print myDNA3
+print dna3

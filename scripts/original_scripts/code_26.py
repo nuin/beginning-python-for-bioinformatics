@@ -10,7 +10,7 @@ def read_fasta(file):
         if line.startswith(">"):
            if index >= 1:
                items.append(aninstance)
-           index+=1
+           index += 1
            name = line[:-1]
            seq = ''
            aninstance = Fasta(name, seq)

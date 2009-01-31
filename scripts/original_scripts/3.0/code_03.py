@@ -8,7 +8,7 @@ regex module to transcribe DNA to RNA
 import re
 
 #setting the DNA string
-myDNA = 'ACGTTGCAACGTTGCAACGTTGCA'
+dna = 'ACGTTGCAACGTTGCAACGTTGCA'
 
 #assigning a new regex and compiling it 
 #to find all Ts
@@ -16,6 +16,6 @@ regexp = re.compile('T')
 
 #create a new string tha will receive 
 #the regex result with Us replacing Ts
-myRNA = regexp.sub('U', myDNA)
+rna = regexp.sub('U', dna)
 
-print(myRNA)
+print(rna)
